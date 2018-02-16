@@ -108,13 +108,14 @@ class AppProxy {
    *
    * @param {string} title The notification title
    * @param {string} body The notification body
+   * @param {Date=new Date()} date The notification date
    * @param {object={}} context The application context to send back if the notification is clicked
    * @return {void}
    */
-  notify (title, body, context = {}) {
+  notify (title, body, date = new Date(), context = {}) {
     return this.rpc.send(
       'notification',
-      [title, body, context]
+      [title, body, date, context]
     )
   }
 }
